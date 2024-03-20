@@ -1,54 +1,24 @@
 
 # Django Event Email System
 
-## Overview
-
-This Django API is designed to automate the process of sending event emails, such as birthday and work anniversary emails, to employees. The system retrieves event details from its database, personalizes email templates, and sends emails to the respective employees.
-
-## Features
-
-- Send event emails (birthdays, work anniversaries) automatically.
-- Retrieve event data from the database.
-- Personalize email templates with employee details.
-- Log email sending status and errors encountered.
 
 ## Getting Started
-
-### Prerequisites
-
-- Python 3.11+
-- Django 5.0.3
-- Django REST Framework
 
 ### Installation
 
 1. Clone this repository to your local machine:
    ```
-   git clone https://github.com/your/repository.git
+   git clone https://github.com/Shaheen1906/Automate_email_sent.git
    ```
 
 2. Navigate to the project directory:
    ```
-   cd event_email_system
+   cd Automate_email_sent
    ```
 
 3. Install dependencies using pip:
    ```
    pip install -r requirements.txt
-   ```
-
-### Configuration
-
-1. Set up your Django project settings, including database configuration, email settings, etc., in `settings.py`.
-
-2. Run migrations to create necessary database tables:
-   ```
-   python manage.py migrate
-   ```
-
-3. Create superuser for admin access:
-   ```
-   python manage.py createsuperuser
    ```
 
 ### Usage
@@ -63,44 +33,58 @@ This Django API is designed to automate the process of sending event emails, suc
    http://localhost:8000/
    ```
 
-3. Use the provided API endpoints to:
-   - Add employee details: `/employees/`
-   - Schedule events (birthdays, work anniversaries): `/events/`
-   - Create email templates: `/email-templates/`
-   - Send event emails: `/send-event-emails/`
+3. Use the provided API endpoints as follows:
+
+- **Manage Employee Details:**
+  - **Endpoint:** `/employees/`
+  - **Method:** POST (Create), GET (List)
+  - **Description:** Use this endpoint to add new employee details or retrieve existing employee details.
+
+- **Retrieve, Update, or Delete Individual Employee Details:**
+  - **Endpoint:** `/employees/<int:pk>/`
+  - **Method:** GET (Retrieve), PUT (Update), DELETE (Delete)
+  - **Description:** Use this endpoint to retrieve, update, or delete individual employee details by their primary key.
+
+- **Create and Manage Email Templates:**
+  - **Endpoint:** `/emailtemplate/`
+  - **Method:** POST (Create), GET (List)
+  - **Description:** Use this endpoint to create new email templates or retrieve existing email templates.
+
+- **Retrieve, Update, or Delete Individual Email Templates:**
+  - **Endpoint:** `/emailtemplate/<int:pk>/`
+  - **Method:** GET (Retrieve), PUT (Update), DELETE (Delete)
+  - **Description:** Use this endpoint to retrieve, update, or delete individual email templates by their primary key.
+
+- **Schedule Events (Birthdays, Work Anniversaries):**
+  - **Endpoint:** `/events/`
+  - **Method:** POST (Create), GET (List)
+  - **Description:** Use this endpoint to schedule new events (such as birthdays or work anniversaries) or retrieve existing events.
+
+- **Retrieve, Update, or Delete Individual Events:**
+  - **Endpoint:** `/events/<int:pk>/`
+  - **Method:** GET (Retrieve), PUT (Update), DELETE (Delete)
+  - **Description:** Use this endpoint to retrieve, update, or delete individual events by their primary key.
+
+- **Manage Email Sending Logs:**
+  - **Endpoint:** `/email-logs/`
+  - **Method:** POST (Create), GET (List)
+  - **Description:** Use this endpoint to view email sending logs or create new logs.
+
+- **Retrieve, Update, or Delete Individual Email Sending Logs:**
+  - **Endpoint:** `/email-logs/<int:pk>/`
+  - **Method:** GET (Retrieve), PUT (Update), DELETE (Delete)
+  - **Description:** Use this endpoint to retrieve, update, or delete individual email sending logs by their primary key.
+
+- **Send Event Emails:**
+  - **Endpoint:** `http://localhost:8000/`
+  - **Method:** POST
+  - **Description:** Use this endpoint to trigger the process of sending event emails (birthdays, work anniversaries). Simply click on POST to initiate the process.
 
 4. Authenticate as admin to access admin functionalities:
-   - `/admin/`
+- `http://localhost:8000/admin/`
+  - **Username:** admin
+  - **Password:** admin
 
-### API Endpoints
-
-- `/employees/`: Manage employee details.
-- `/events/`: Schedule events (birthdays, work anniversaries).
-- `/email-templates/`: Create and manage email templates.
-- `/send-event-emails/`: Trigger the process of sending event emails.
-
-### Admin Access
-
-1. Log in as admin using the credentials created during superuser creation.
-
-2. Access the admin panel at `/admin/` to manage database entries and monitor email sending status.
-
-## Contributing
-
-Contributions are welcome! Please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgements
-
-Special thanks to the contributors and the Django community for their valuable contributions and support.
-
-## Contact
-
-For any inquiries or support, please contact [your email address].
-
----
-
-Feel free to customize this README according to your specific project requirements. Include detailed instructions on how to set up and use your Django application, and provide clear explanations of each feature and endpoint.
+5. **Output**
+![alt text](image.png)
+![alt text](image-1.png)
